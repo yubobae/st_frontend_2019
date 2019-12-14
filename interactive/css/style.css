@@ -1,0 +1,58 @@
+@charset "utf-8";
+.wrap { 
+    /* vw:viewport width 브라우저 폭기준*/
+    /* vh:viewport height 브라우저 높이기준*/
+    overflow:hidden;
+    position: relative;
+    width:100vw;
+    height:75vw;
+    background:#fff000;
+    }
+@keyframes moving {
+    form {
+        transform:translateX(0);
+    }
+    to {
+        transform:translateX(75vw);
+    }
+}
+.friend { 
+    position: absolute;
+    width:100px;
+    height:100px;
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    background-size:contain;
+    animation: moving infinite alternate;
+}
+.friend:nth-of-type(1) {
+    left:5%;
+    bottom:5%;
+    background-image:url(../images/girls1.png);
+    animation-duration:2s;
+}
+.friend:nth-of-type(2) {
+    left:10%;
+    bottom:3%;
+    background-image:url(../images/girls2.png);
+    animation-duration:3s;
+}
+.friend:nth-of-type(3) {
+    left:7%;
+    bottom:10%;
+    background-image:url(../images/girls3.png);
+    animation-duration:1s;
+}
+.friend:nth-of-type(4) {
+    left:2%;
+    bottom:7%;
+    background-image:url(../images/girls4.png);
+    animation-duration:4s;
+}
+.friend:nth-of-type(5) {
+    left:2%;
+    bottom:7%;
+    background-image:url(../images/girls5.png);
+    animation-duration:.8s;
+}
+

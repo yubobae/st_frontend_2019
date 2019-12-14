@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document event:this event</title>
+</head>
+<style>
+    .content { 
+        width:100%; 
+        padding:20px; 
+        background:#e1e1e1; 
+        display:flex;
+        align-items: center;
+        justify-content: space-around;
+        }
+    .item { 
+        width:25%; 
+        box-sizing:border-box; 
+        padding:10px; 
+        text-align:center;
+        margin:10px;
+        background:tomato; 
+        color:#fff; 
+        cursor:pointer;
+    }
+    .item.active {
+        border:3px dashed green;
+    }
+</style>
+<body>
+    <div class="content">
+        <div class="item a">
+            <a href="#">DOM A</a>
+        </div>
+        <div class="item b">
+            <a href="#">DOM B</a>
+        </div>
+        <div class="item c">
+            <a href="#">DOM C</a>
+        </div>
+        <div class="item d">
+            <a href="#">DOM D</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function(){//전역변수를 막기위해 
+            const content = document.querySelector('.content');
+
+            function ClickHandler(e){
+                // console.log(this)
+                //console.log(e.currentTarget)<div class="item b"><a href="#">DOM B</a></div> this와 같은 값을 출력한다.?부모요소
+                console.log(e.target);//실제로 클릭한 요소를 출력함.
+            }
+            content.addEventListener('click',ClickHandler);
+        })();
+        
+    </script>
+</body>
+</html>

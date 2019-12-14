@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document event:example test</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="friend"></div>
+        <div class="friend"></div>
+        <div class="friend"></div>
+        <div class="friend"></div>
+        <div class="friend"></div>
+    </div>
+    <script type="text/javascript">
+        //이벤트 위임. - 메모리 관련해서 최적화된 기술
+       (function(){
+           const girls = document.querySelector('.wrap');
+           
+           function clickHendler(e) {
+               if (e.target.classList.contains('friend')) {
+                girls.removeChild(e.target);
+               }
+           }
+           girls.addEventListener('click',clickHendler)
+           
+       })();
+    </script>
+</body>
+</html>

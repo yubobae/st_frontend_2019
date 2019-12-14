@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document event:example test</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="friend"></div>
+        <div class="friend"></div>
+        <div class="friend"></div>
+        <div class="friend"></div>
+        <div class="friend"></div>
+    </div>
+    <script type="text/javascript">
+        //이벤트 위임에대해서 알려면 dom_event_addListener_example.html 참고
+       (function(){
+           const girls = document.querySelectorAll('.friend');
+           const wrap = document.querySelector('.wrap');
+
+           function clickHendler(e) {
+                // wrap.removeChild(this);
+                // console.log(this);
+                // console.log(e.currentTarget);
+                this.parentNode.removeChild(this);
+           }
+            for(let i = 0; i < girls.length; i++ ){//메모리를 많이 잡아먹음. dom_event_addListener_example.html 참고
+                girls[i].addEventListener('click',clickHendler)
+            }
+       })();
+    </script>
+</body>
+</html>
