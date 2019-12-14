@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>interection</title>
+</head>
+<style>
+    .title { color:skyblue; }
+    .active { border:1px solid red; }
+</style>
+<body>
+    <div class="content">
+        <h2 class="title a">dom script(Document Object Model)</h2>
+        돔 스크립트에서 가장 흔하게 많이 사용하는 스크립트정리
+        document.querySelector 스크립트 구문을 가장 많이 사용한당!
+        <h2 class="title b">dom s2</h2>
+        <h2 class="title c">dom 3</h2>
+        <h2 class="title e">dom 4</h2>
+        <h2 class="title f">dom5</h2>
+    </div>
+</body>
+<script>
+    var title =  document.querySelector('.title');
+
+    var titleArray =  document.querySelectorAll('.title');
+    console.log(titleArray[2]);
+
+    for(var i=0; i<= titleArray.length-1;i++){
+        console.log(titleArray[i])
+    }
+
+    title.setAttribute('data-index','subject');
+    title.classList.add('active');
+    title.classList.remove('active');
+    title.classList.toggle('active');
+    var newElem = document.createElement('p');
+    newElem.innerHTML = '<a href="#">여기를 눌러주세요<a/>'
+    title.appendChild(newElem);
+
+</script>
+</html>

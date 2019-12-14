@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document event</title>
+    <!-- <script>
+
+        // window.addEventListener('load', function(){
+        window.addEventListener('DOMContentLoaded', function(){//dom을 모두 불러온뒤 이벤트를 실행하라
+            const item = document.querySelector('.item');
+            
+            function ClickItemHandler(){
+                item.classList.toggle('active');
+            }
+            item.addEventListener('click',ClickItemHandler)
+        });
+    </script> -->
+</head>
+<style>
+    .content { 
+        width:100%; 
+        padding:20px; 
+        background:#e1e1e1; 
+        }
+    .item { 
+        width:25%; 
+        box-sizing:border-box; 
+        padding:10px; 
+        text-align:center;
+        border:3px solid skyblue;
+        background:tomato; 
+        color:#fff; 
+    }
+    .item.active {
+        border:3px dashed green;
+    }
+</style>
+<body>
+    <div class="content">
+        <div class="item a">
+            <a href="#">DOM A</a>
+        </div>
+        <div class="item b">
+            <a href="#">DOM B</a>
+        </div>
+        <div class="item c">
+            <a href="#">DOM C</a>
+        </div>
+        <div class="item d">
+            <a href="#">DOM D</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //전역변수
+        const item = document.querySelector('.item');
+
+        //함수 표현식
+        // const ClickItemHandler = function(){
+        //     item.classList.toggle('active')
+        // }
+        
+        //ECMA2015.ver
+        // const ClickItemHandler = () => {
+        //     item.classList.toggle('active')
+        // }
+
+        // function ClickItemHandler(){
+        //     item.classList.toggle('active');
+        // }
+
+        // item.addEventListener('click',ClickItemHandler)
+
+        (function(){//전역변수를 막기위해 
+            const item2 = document.querySelector('.item');
+
+            function ClickItemHandler(){
+                item2.classList.toggle('active');
+            }
+            item2.addEventListener('click',ClickItemHandler);
+        })();
+        
+    </script>
+</body>
+</html>
