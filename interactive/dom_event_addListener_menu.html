@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document event:example test</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="menu">
+        <!-- <button class="menu-btn" data-value="1">
+            <img class="icon" src="images/girls1.png" alt="">
+            <span class="btn-label">girls 1</span> 
+        </button>
+        <button class="menu-btn" data-value="2">
+            <img class="icon" src="images/girls2.png" alt="">
+            <span class="btn-label">girls 2</span> 
+        </button>
+        <button class="menu-btn" data-value="3">
+            <img class="icon" src="images/girls3.png" alt="">
+            <span class="btn-label">girls 3</span> 
+        </button> -->
+    </div>
+    <script type="text/javascript">
+        const btns = document.querySelectorAll('.menu-btn');
+        const menu = document.querySelector('.menu');
+        function clickHandler(evnet){
+            let elem = event.target;
+            while (!elem.classList.contains('menu-btn')){//계속 반복 되어야 될 경우 if문이 아닌 while문사용
+                elem = elem.parentNode;
+
+                if(elem.nodeName == 'BODY'){
+                    elem = null;
+                    return;
+                }
+            }
+            console.log(elem.dataset.value)
+            // console.log(event.target.getAttribute('data-value'));
+            // console.log(event.target.dataset.value);
+        }
+        menu.addEventListener('click',clickHandler)
+        window.addEventListener('click',() => {
+            const htmlStr = `
+            <button class="menu-btn" data-value="1">
+                <img class="icon" src="images/girls1.png" alt="">
+                <span class="btn-label">girls 1</span> 
+            </button>
+            <button class="menu-btn" data-value="2">
+                <img class="icon" src="images/girls2.png" alt="">
+                <span class="btn-label">girls 2</span> 
+            </button>
+            <button class="menu-btn" data-value="3">
+                <img class="icon" src="images/girls3.png" alt="">
+                <span class="btn-label">girls 3</span> 
+            </button>
+            `;
+            menu.innerHTML = htmlStr;
+        });
+    </script>
+</body>
+</html>
