@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document event:active event:test 3개의 문</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/active_style.css">
+</head>
+<body>
+    <div class="stage">
+        <div class="door">
+            <div class="door-back">
+                <div class="girls"></div>
+            </div>
+            <div class="door-body"></div>
+        </div>
+        <div class="door">
+            <div class="door-back">
+                <div class="girls"></div>
+            </div>
+            <div class="door-body"></div>
+        </div>
+        <div class="door">
+            <div class="door-back">
+                <div class="girls"></div>
+            </div>
+            <div class="door-body"></div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        const stage = document.querySelector('.stage');
+
+        function doorHandler(e){
+            const targetElem =  e.target;
+            
+            const currentItem = document.querySelector('.door-opened');
+            if(currentItem){
+                currentItem.classList.remove('door-opened');
+            }
+
+            if(targetElem.classList.contains('door-body')){
+                targetElem.parentNode.classList.add('door-opened');
+            }
+        }
+
+        stage.addEventListener('click',doorHandler);
+    })();
+    </script>
+</body>
+</html>

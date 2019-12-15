@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document event:active event:test 3개의 문</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/active_style.css">
+</head>
+<body>
+    <div class="stage">
+        <div class="door">
+            <div class="door-back">
+                <div class="girls"></div>
+            </div>
+            <div class="door-body"></div>
+        </div>
+        <div class="door">
+            <div class="door-back">
+                <div class="girls"></div>
+            </div>
+            <div class="door-body"></div>
+        </div>
+        <div class="door">
+            <div class="door-back">
+                <div class="girls"></div>
+            </div>
+            <div class="door-body"></div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        const stage = document.querySelector('.stage');
+        //현재 활성화된 아이템을 저장
+        let currentItem;
+
+        //활성화
+        function activate(elem){
+            //클릭한 요소를 활성화하고 변수에 저장한다.
+            elem.classList.add('door-opened');
+            currentItem = elem;    
+        }
+        //비활성화
+        function inactivate(elem){
+            elem.classList.remove('door-opened');
+        }
+
+        function doorHandler(e){
+            const targetElem =  e.target;
+           
+            if(currentItem){
+                inactivate(currentItem);
+            }
+
+            if(targetElem.classList.contains('door-body')){
+               activate(targetElem.parentNode);
+            }
+        }
+
+        stage.addEventListener('click',doorHandler);
+        activate(document.querySelector('.door:nth-child(2)'));
+    })();
+    </script>
+</body>
+</html>
