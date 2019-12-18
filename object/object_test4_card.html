@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>object3</title>
+    <link rel="stylesheet" href="./css/reset.css">
+</head>
+<style>
+    .card{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:100px;
+        height:150px;
+        border:1px solid black;
+        border-radius: 10px;
+        font-size:3rem;
+        font-weight:900;
+    }
+</style>
+<body>
+    <h1>object4 : card demo </h1>
+    <script>
+       function Card(num, color) {
+            this.num = num;
+            this.color = color;
+            this.init();
+       }
+
+       Card.prototype = {//메서드를 추가할 때
+            constructor:Card,
+            init: function() {
+                const mainElem = document.createElement('div');
+                mainElem.style.color = this.color;
+                mainElem.innerHTML = this.num;
+                mainElem.classList.add('card');
+                document.body.appendChild(mainElem);
+            }
+       };
+
+       const card1 = new Card(1,'green');
+       const card2 = new Card(8,'blue');
+    </script>
+</body>
+</html>   

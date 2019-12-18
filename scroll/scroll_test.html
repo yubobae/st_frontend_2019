@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scroll Event</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<style>
+    img { max-width:100%; }
+    .content { height:1000vh; padding:20%; background:yellowgreen; }
+    .output { position: fixed; left:0; top:0; width:100%; font-size:2rem; font-weight:200; color:#fff; background:rgba(0,0,0,0.4); }
+    .girls { width:100px; margin:20px; transition: 1s; }
+    .girls.zoom { transform:scale(2); }
+</style>
+<body>
+    <div class="output">output</div>
+    <div class="content">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget faucibus mauris. Nulla aliquam at odio in semper. Donec condimentum ut turpis in accumsan. Morbi pharetra sagittis eros ut placerat. Quisque vel neque at purus posuere imperdiet dictum a ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc a lorem ut eros fringilla aliquet. Donec cursus et turpis id vulputate. Fusce in mauris vitae neque sagittis luctus. Donec sit amet efficitur mi. Phasellus eget posuere magna. Maecenas id sapien in eros porttitor maximus. Nam volutpat dui non luctus tincidunt. Donec dui ipsum, consectetur a purus quis, ornare pharetra risus. Nam congue at urna in finibus.
+            on sodales augue. Suspendisse id ante vitae augue finibus tempor. Nulla semper dolor nec ex auctor fermentum. Nullam iaculis risus tellus, vel vestibulum sapien pretium id. In porttitor orci id nulla eleifend, dictum aliquam dolor volutpat. Praesent non ligula sagittis, aliquam sapien et, viverra metus. Sed elementum facilisis augue sit amet lacinia. Suspendisse potenti. Vivamus malesuada ipsum ut consectetur efficitur. Pellentesque posuere purus in libero elementum, at consectetur orci tincidunt. Praesent a lacinia sem, dictum rutrum sapien. Donec condimentum in lacus vel finibus.
+        </p>
+        <figure class="girls">
+            <img src="images/girls1.png" alt="여자아이">
+        </figure>
+    </div>
+    <script>
+        (function(){
+            const outputElem = document.querySelector('.output');
+            const girlsElem = document.querySelector('.girls');
+            //스크롤 이벤트 추가
+
+            function showValue(){
+                let posY = girlsElem.getBoundingClientRect().top;
+                outputElem.innerHTML = posY;
+                
+                console.log(window.innerHeight);
+
+                if(posY < window.innerHeight * 0.2) {
+                    girlsElem.classList.add('zoom');
+                } else {
+                    girlsElem.classList.remove('zoom');
+                }
+            }
+
+            window.addEventListener('scroll', function() {
+                // outputElem.innerHTML = window.pageYOffset; 페이지 스크롤 위치 값가져오기
+                // outputElem.innerHTML = girlsElem.offsetTop;
+                // console.log(outputElem.innerHTML = girlsElem.getBoundingClientRect());
+                // outputElem.innerHTML = girlsElem.getBoundingClientRect().top;
+                showValue();
+
+            });
+            showValue();
+
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>object2</title>
+    <link rel="stylesheet" href="./css/reset.css">
+</head>
+<body>
+    <h1>object2</h1>
+    <script>
+        //생성자 함수
+       function Person(nickname,age) {
+           this.nickname = nickname;
+           this.age = age;
+           this.introduce = function(){
+            console.log('안녕하세요? 저는 '+ this.nickname +'이고 나는 '+ this.age +'살이에요')
+           }
+
+       }
+       //인스턴스(instans)
+       const person1 = new Person('유보배',10);
+       const person2 = new Person('유보람',9);
+
+      person1.introduce();
+      person2.introduce();
+    </script>
+</body>
+</html>   

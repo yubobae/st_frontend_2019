@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>object</title>
+    <link rel="stylesheet" href="./css/reset.css">
+</head>
+<body>
+    <h1>object</h1>
+    <script>
+        // const person = {};
+        // // const person = new object(); 잘 사용하지 않음..
+        // person.name = '유보배';
+        // person.age = 10;
+        // // 메소드, method (함수형 속성)
+        // person.introduce = function(){
+        //     console.log('안녕하세요? 저는 유보배이고 나는 10살이에요')
+        // }
+        // person.introduce();
+
+        //객체를 만들 때 이런 형태를 많이한다.
+        const person = {
+            nickname: '유보배',
+            age:10,
+            introduce: function(){
+                console.log('안녕하세요? 저는 '+ this.nickname +'이고 나는 '+ this.age +'살이에요')
+            }
+        };
+        const person2 = {
+            nickname: '유보람',
+            age:7,
+            introduce: function(){
+                console.log('안녕하세요? 저는 '+ this.nickname +'이고 나는 '+ this.age +'살이에요')
+            }
+        };
+        
+
+        person.introduce();
+        person2.introduce();
+    </script>
+</body>
+</html>   

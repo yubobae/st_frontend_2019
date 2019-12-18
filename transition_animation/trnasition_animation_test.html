@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .ball {
+        position: absolute;
+        left:0;
+        top:0;
+        /* margin:-15px 0 0 -15px; */
+        width:30px;
+        height:30px;
+        background:red;
+        border-radius:50%;
+        transition: 2s;
+    }
+    .ball.end {
+        background:dodgerblue;
+    }
+    .ball.start {
+        background:greenyellow;
+        transition: 1s;
+    }
+</style>
+<body>
+    <div class="ball"></div>
+    <script>
+        const ballElem = document.querySelector('.ball');
+
+        window.addEventListener('click', function(e) {
+            ballElem.style.transform = 'translate('+ (e.clientX - 15) +'px,'+ (e.clientY -15) +'px)'
+        });
+
+        ballElem.addEventListener('transitionend',function(e) {
+            ballElem.classList.add('end');
+            console.log(e.elapsedTime);//transition-duration 값이 출력된다. 속도 초값
+            console.log(e.propertyName);//transition-duration 값이 출력된다. 속도 초값
+        })
+        ballElem.addEventListener('transitionstart',function(e) {
+            ballElem.classList.add('start');
+            console.log(e.elapsedTime);//transition-duration 값이 출력된다. 속도 초값
+            console.log(e.propertyName);//transition-duration 값이 출력된다. 속도 초값
+        })
+    </script>    
+</body>
+</html>
