@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .btn{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">취소</button>
+    <script>
+        //IE 10 부터 지원 , 
+        let timeEnd;
+        let n = 0;
+        const btn = document.querySelector('.btn');
+        
+        function sample(){
+            n++;
+            console.log(n);
+            if(n>200){
+                return;
+            }//200번 반복하면 멈추게 조건식을 걸수있다.;
+
+            console.log('sample!!')
+
+            timeEnd = requestAnimationFrame(sample);
+        }//함수안에서 requestAnimationFrame가 sample 함수를 실행시켜 반복실행됨.
+         
+        // timeEnd = requestAnimationFrame(sample); 한번만 실행 해야할경우 ->  밖에다 호출.
+    
+        sample();
+        
+        btn.addEventListener('click',function(){
+            cancelAnimationFrame(timeEnd);
+        });
+    </script>
+</body>
+</html>

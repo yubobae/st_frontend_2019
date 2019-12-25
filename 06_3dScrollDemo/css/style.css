@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+body { 
+    font-family: 'Roboto', 'Noto Sans KR', 'margun Gothic' sans-serif;
+    -webkit-overflow-scrolling: touch;
+    color:#555;
+    background:#fff000;
+ }
+
+ .world {
+    perspective:1000px; 
+ }
